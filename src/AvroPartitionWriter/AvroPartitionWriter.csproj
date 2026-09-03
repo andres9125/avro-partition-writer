@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <PackageId>AvroPartitionWriter</PackageId>
+    <Description>Size-bounded Apache Avro OCF writer for GenericRecord values.</Description>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <RepositoryUrl>https://github.com/andres9125/avro-partition-writer</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>avro;ocf;partition;streaming;export</PackageTags>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Apache.Avro" Version="1.12.1" />
+  </ItemGroup>
+</Project>
+
