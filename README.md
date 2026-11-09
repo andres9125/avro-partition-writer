@@ -11,6 +11,26 @@ threshold is reached. The next record starts a new valid AVRO file.
 It is intended for batch exports that must avoid a single oversized output
 file while keeping every produced part independently readable.
 
+## Run the rotation demo
+
+With the .NET 8 SDK, run this from the repository root.
+
+~~~sh
+dotnet run --project examples/RotationDemo
+~~~
+
+The demo writes six synthetic records with a 700-byte rotation threshold. It
+opens each generated part with the standard Avro reader and verifies that all
+six record IDs are recovered in order. The final line prints the temporary
+directory where you can inspect the files.
+
+~~~text
+events.part1.avro: 713 bytes, IDs 1, 2
+events.part2.avro: 713 bytes, IDs 3, 4
+events.part3.avro: 713 bytes, IDs 5, 6
+Verified 6 records across 3 independently readable parts.
+~~~
+
 ## What it does
 
 - Writes `GenericRecord` values to standard AVRO OCF files.
