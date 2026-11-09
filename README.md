@@ -4,12 +4,25 @@
 [![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg)](LICENSE)
 
 Avro Partition Writer is a focused .NET library for writing Apache Avro Object
-Container Files (OCF) in size-bounded parts. It accepts `GenericRecord`
-instances, flushes each record, and closes the current file once the configured
-threshold is reached. The next record starts a new valid AVRO file.
+Container Files (OCF) with a configurable rotation threshold. It accepts
+`GenericRecord` instances, flushes each record, and closes the current file
+once the threshold is reached. The next record starts a new valid AVRO file.
 
 It is intended for batch exports that must avoid a single oversized output
 file while keeping every produced part independently readable.
+
+## Project background
+
+This library grew out of work on **MURIC**, the credit portfolio report that
+regulated financial institutions submit to the Superintendencia Financiera de
+Colombia. It provides a reusable way to rotate batch data into independently
+readable Apache Avro files.
+
+The public library takes a caller-provided schema and handles Avro file
+generation. The MURIC submission specification covers the official schema,
+validation, digital signing and transmission.
+
+[Official MURIC documentation](https://www.superfinanciera.gov.co/publicaciones/10116149/modulo-unico-de-reporte-de-informacion-de-cartera-muric/)
 
 ## Run the rotation demo
 
